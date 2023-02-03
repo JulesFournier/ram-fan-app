@@ -10,7 +10,7 @@ const ApplicationConf = {
             info {
               count
               pages
-              next 
+              next
               prev
             }
             results {

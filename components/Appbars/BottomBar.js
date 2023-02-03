@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import { Appbar, FAB, useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const BOTTOM_APPBAR_HEIGHT = 50;
+const MEDIUM_FAB_HEIGHT = 100;
 
-const BottomBar = () => {
+const BottomBar = ({ currentPageHandler, currentPage }) => {
     const { bottom } = useSafeAreaInsets();
     const theme = useTheme();
 
@@ -20,10 +21,22 @@ const BottomBar = () => {
             ]}
             safeAreaInsets={{ bottom }}
         >
-            <Appbar.Action icon="filter" onPress={() => {}} />
-            <Appbar.Action icon="email" onPress={() => {}} />
-            <Appbar.Action icon="label" onPress={() => {}} />
-            <Appbar.Action icon="delete" onPress={() => {}} />
+            <Appbar.Action icon="skip-previous" onPress={() => {}} />
+            <Appbar.Action icon="chevron-left" onPress={() => currentPageHandler(false)} />
+            <Text children={currentPage.toString()}/>
+            <Appbar.Action icon="chevron-right" onPress={() => currentPageHandler(true)} />
+            <Appbar.Action icon="skip-next" onPress={() => {}} />
+            <FAB
+                mode="elevated"
+                size="medium"
+                icon="filter"
+                onPress={() => {
+                }}
+                style={[
+                    styles.fab,
+                    { top: (BOTTOM_APPBAR_HEIGHT - MEDIUM_FAB_HEIGHT) / 2 },
+                ]}
+            />
         </Appbar>
     );
 };

@@ -29,7 +29,7 @@ const CharacterItem = ({ character, navigation }) => {
 
     return (
         <Card style={{
-            padding: 20,
+            padding: 10,
             marginVertical: 8,
             marginHorizontal: 16,
         }}>
