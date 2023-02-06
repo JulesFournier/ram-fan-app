@@ -1,25 +1,25 @@
 import {Avatar, Button, Card} from "react-native-paper";
 import * as React from "react";
 
+export const statusDetails = {
+    Alive: {
+        text: "Alive",
+        icon: "hospital",
+        color: "green"
+    },
+    Dead: {
+        text: "Dead",
+        icon: "skull",
+        color: "red"
+    },
+    unknown: {
+        text: "Unknown",
+        icon: "help",
+        color: "grey"
+    },
+}
 const CharacterItem = ({ character, navigation }) => {
     const { name, image, status, species } = character;
-    const statusDetails = {
-        Alive: {
-            text: "Alive",
-            icon: "hospital",
-            color: "green"
-        },
-        Dead: {
-            text: "Dead",
-            icon: "skull",
-            color: "red"
-        },
-        unknown: {
-            text: "Unknown",
-            icon: "help",
-            color: "grey"
-        },
-    }
     const LeftContent = props =>
         <Avatar.Icon
             {...props}
@@ -45,7 +45,7 @@ const CharacterItem = ({ character, navigation }) => {
                 <Button
                     children={"Go to Details"}
                     mode={"contained"}
-                    onPress={() => navigation.navigate('Details')}
+                    onPress={() => navigation.navigate('Details', { character: character })}
                 />
             </Card.Actions>
         </Card>

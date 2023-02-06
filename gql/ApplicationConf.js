@@ -5,8 +5,8 @@ const ApplicationConf = {
   characters: {
     getByPage(pageNb) {
       return gql`
-        query {
-          characters(page: ${pageNb}) {
+        query GetCharactersByPage($pageNb: Number!) {
+          characters(page: $pageNb) {
             info {
               count
               pages

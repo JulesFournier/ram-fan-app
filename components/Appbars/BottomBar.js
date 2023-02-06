@@ -1,12 +1,14 @@
 import * as React from 'react';
-import {StyleSheet, Text} from 'react-native';
-import { Appbar, FAB, useTheme } from 'react-native-paper';
+import {StyleSheet, Text, View} from 'react-native';
+import {Appbar, Button, Chip, Divider, FAB, Menu, useTheme} from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {useEffect, useState} from "react";
+import FilterModal from "../Modals/FilterModal";
 
 const BOTTOM_APPBAR_HEIGHT = 50;
 const MEDIUM_FAB_HEIGHT = 100;
 
-const BottomBar = ({ currentPageHandler, currentPage }) => {
+const BottomBar = ({ lastPageHandler, currentPageHandler, currentPage, openModalHandler }) => {
     const { bottom } = useSafeAreaInsets();
     const theme = useTheme();
 
@@ -21,17 +23,16 @@ const BottomBar = ({ currentPageHandler, currentPage }) => {
             ]}
             safeAreaInsets={{ bottom }}
         >
-            <Appbar.Action icon="skip-previous" onPress={() => {}} />
+            <Appbar.Action icon="skip-previous" onPress={() => lastPageHandler(false)} />
             <Appbar.Action icon="chevron-left" onPress={() => currentPageHandler(false)} />
             <Text children={currentPage.toString()}/>
             <Appbar.Action icon="chevron-right" onPress={() => currentPageHandler(true)} />
-            <Appbar.Action icon="skip-next" onPress={() => {}} />
+            <Appbar.Action icon="skip-next" onPress={() => lastPageHandler(true)} />
             <FAB
                 mode="elevated"
                 size="medium"
                 icon="filter"
-                onPress={() => {
-                }}
+                onPress={() => openModalHandler()}
                 style={[
                     styles.fab,
                     { top: (BOTTOM_APPBAR_HEIGHT - MEDIUM_FAB_HEIGHT) / 2 },
