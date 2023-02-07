@@ -2,10 +2,10 @@ import {StyleSheet, FlatList, Text, View, ActivityIndicator} from "react-native"
 import * as React from "react";
 import {useQuery, refetch, gql} from "@apollo/client";
 import ApplicationConf from "../../gql/ApplicationConf";
-import CharacterItem from "../Items/CharacterItem";
-import BottomBar from "../Appbars/BottomBar";
+import CharacterItem from "../items/CharacterItem";
+import BottomBar from "../appbars/BottomBar";
 import {useEffect, useState} from "react";
-import FilterModal from "../Modals/FilterModal";
+import FilterModal from "../modals/FilterModal";
 
 const CHARACTERS_QUERY = gql`
     query GetCharactersByPage($pageNb: Int!, $genderFilter: String, $statusFilter: String) {

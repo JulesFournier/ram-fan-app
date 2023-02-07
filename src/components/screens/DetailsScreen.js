@@ -1,7 +1,7 @@
 import {Text, View} from "react-native";
 import * as React from "react";
 import {Card, Button, Avatar} from "react-native-paper";
-import {statusDetails} from "../Items/CharacterItem";
+import {statusDetails} from "../items/CharacterItem";
 
 const DetailsScreen = ({ route, navigation }) => {
     const {

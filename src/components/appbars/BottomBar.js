@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Appbar, Button, Chip, Divider, FAB, Menu, useTheme} from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {useEffect, useState} from "react";
-import FilterModal from "../Modals/FilterModal";
+import FilterModal from "../modals/FilterModal";
 
 const BOTTOM_APPBAR_HEIGHT = 50;
 const MEDIUM_FAB_HEIGHT = 100;

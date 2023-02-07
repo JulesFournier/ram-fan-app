@@ -2,9 +2,10 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
-import HomeScreen from "./components/screens/HomeScreen";
-import DetailsScreen from "./components/screens/DetailsScreen";
+import HomeScreen from "./src/components/screens/HomeScreen";
+import DetailsScreen from "./src/components/screens/DetailsScreen";
 import {MD3LightTheme as DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import 'cross-fetch/polyfill';
 
 const theme = {
     ...DefaultTheme,
